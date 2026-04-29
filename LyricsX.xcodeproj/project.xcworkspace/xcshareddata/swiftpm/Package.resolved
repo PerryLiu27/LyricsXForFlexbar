@@ -76,7 +76,7 @@
     {
       "identity" : "masshortcut",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/shpakovski/MASShortcut",
+      "location" : "https://github.com/cocoabits/MASShortcut",
       "state" : {
         "branch" : "master",
         "revision" : "6f2603c6b6cc18f64a799e5d2c9d3bbc467c413a"
@@ -213,8 +213,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Mx-Iris/UIFoundation",
       "state" : {
-        "revision" : "a1fc98293da7f4c7744fc70e23cecb0417eb5574",
-        "version" : "0.4.0"
+        "revision" : "f57afb9a09c21e716b8a1ee4e8ce574dd7486f29",
+        "version" : "0.3.0"
       }
     }
   ],

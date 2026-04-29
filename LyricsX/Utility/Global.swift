@@ -165,6 +165,10 @@ extension UserDefaults.DefaultsKeys {
     static let lyricsSourcePriorityEnabled = Key<Bool>("LyricsSourcePriorityEnabled")
     static let lyricsSourcePriorityOrder = Key<[String]>("LyricsSourcePriorityOrder")
     static let lyricsPriorityWindow = Key<Double>("LyricsPriorityWindow")
+
+    /// Local JSON API for Flexbar (`GET http://127.0.0.1:<port>/state`).
+    static let flexbarHTTPServerEnabled = Key<Bool>("FlexbarHTTPServerEnabled")
+    static let flexbarHTTPServerPort = Key<Int>("FlexbarHTTPServerPort")
 }
 
 // MARK: - Lyrics Priority

@@ -4,11 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-LyricsX is a macOS menu-bar application (`LSUIElement`) that automatically searches, downloads, and displays synchronized lyrics for the currently playing song. It supports multiple music players and lyrics sources, with desktop karaoke overlay and menu-bar lyrics display. This is a personally maintained fork of `ddddxxx/LyricsX`.
+LyricsXForFlexbar is a macOS menu-bar application (`LSUIElement`) that automatically searches, downloads, and displays synchronized lyrics for the currently playing song. It supports multiple music players and lyrics sources, with desktop karaoke overlay, menu-bar lyrics display, and a loopback HTTP API for Flexbar integration.
+
+This fork is owned and maintained by `perryliu27` for Flexbar integration work. It is forked from `MxIris-LyricsX-Project/LyricsX` (upstream maintainer: Mx-Iris), which itself continues the original `ddddxxx/LyricsX` by Xander Deng.
 
 - **Platform**: macOS 11+ only
 - **Language**: Swift 5 (project setting), Swift 6.2 toolchain (Package.swift)
-- **Bundle ID**: `com.JH.LyricsX`
+- **Bundle ID**: `com.JH.LyricsX` (kept for the current Xcode/runtime signing configuration; this is separate from the Flexbar plugin package `com.perryliu27.lyricsxforflexbar`)
+- **App version line**: inherits upstream LyricsX `1.8.1`
+- **Flexbar plugin version line**: independently maintained from `v1.0.0`
 
 ## Build Commands
 

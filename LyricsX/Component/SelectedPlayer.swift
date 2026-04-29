@@ -54,7 +54,12 @@ extension MusicPlayers {
             let q = DispatchQueue.global()
             let i: DispatchQueue.SchedulerTimeType.Stride = .seconds(manualUpdateInterval)
             scheduleCanceller = q.schedule(after: q.now.advanced(by: i), interval: i, tolerance: i * 0.1, options: nil) { [unowned self] in
-                self.designatedPlayer?.updatePlayerState()
+                // Spotify’s Scripting Bridge often reports `playerPosition` as 0 while playing; `updatePlayerState`
+                // overwrites the good position from distributed notifications with that bad value and freezes
+                // progress (LyricsX + Flexbar). Apple Music / others still benefit from periodic SB refresh.
+                guard let dp = self.designatedPlayer else { return }
+                if dp.name == .spotify, dp.playbackState.isPlaying { return }
+                dp.updatePlayerState()
             }
         }
     }

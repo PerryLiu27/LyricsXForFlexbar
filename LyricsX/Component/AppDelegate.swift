@@ -78,6 +78,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation, NSMenu
         if defaults[.isShowLyricsHUD] {
             lyricsHUD.showWindow(nil)
         }
+
+        FlexbarLoopbackHTTPServer.shared.updateFromDefaults()
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows: Bool) -> Bool {
@@ -90,6 +92,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation, NSMenu
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
+        FlexbarLoopbackHTTPServer.shared.stop()
         if AppController.shared.currentLyrics?.metadata.needsPersist == true {
             AppController.shared.currentLyrics?.persist()
         }
@@ -258,6 +261,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation, NSMenu
             .chineseConversionIndex: isHant ? 2 : 0,
             .desktopLyricsXPositionFactor: 0.5,
             .desktopLyricsYPositionFactor: 0.9,
+            .flexbarHTTPServerEnabled: true,
+            .flexbarHTTPServerPort: 47_635,
         ])
     }
 
